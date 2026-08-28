@@ -20,14 +20,14 @@ body{
     border-radius: 21px;
 }
 .card h2{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .card p{
-    color: #000000;
+    color: #ffffff;
 }
 .card button{
-    background-color: #000000;
+    background-color: #ffffff;
     color: white;
     border: none;
     padding: 10px 20px;
