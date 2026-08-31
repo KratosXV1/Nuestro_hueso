@@ -3,17 +3,18 @@
     justify-content: center;
     align-items: center;
     min-height: 0vh;
-    margin: 0;
+    margin: 100;
+    color: rgb(249, 246, 246);
 }
 
 body.inicio{
-    background-color:#d69a9a ;
+    background-color:#d99090 ;
 }
 
 
 .card{
     width: 300px;
-    background-color: #10d6b5;
+    background-color: rgb(239, 204, 204);
     padding: 20px;
     margin: 20px;
     border: 1px solid #000000;
@@ -37,13 +38,17 @@ body.inicio{
     background-color: rgb(0, 136, 255);
 }
 
-
-p.nuestra_hisoria{
-   background-color: aqua  ;
-    display: flex;
+.links{
+    display:flex;
     justify-content: center;
     align-items: center;
-    color: aliceblue;
-    font-size: 25px;
-    font-weight: bold
+
+}
+.links a{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
 }
