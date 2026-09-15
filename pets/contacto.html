@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Nuestro Hueso</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="inicio">
+    <header>
+        <h1 class="contenedor contenedor1">
+            <a href="index.html" class="contenedor1">Nuestro Hueso</a>
+        </h1>
+    </header>
+
+    <nav class="links">
+        <a href="index.html" class="card">Home</a>
+        <a href="blogs.html" class="card">Blogs</a>
+        <a href="Nosotros.html" class="card">Nosotros</a>
+        <a href="productos.html" class="card">Productos</a>
+        <a href="contacto.html" class="card">Contacto</a>
+        <a href="sesion.html" class="card">Iniciar sesión</a>
+        <a href="registro.html" class="card">Registrar usuario</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Formulario de Contacto</h2>
+
+            <form id="formContacto" novalidate>
+                <div>
+                    <label for="nombre">Nombre Completo:</label><br>
+                    <input type="text" id="nombre" name="nombre" maxlength="100">
+                    <span id="errorNombre" style="color: red; display: block;"></span>
+                </div>
+
+                <div>
+                    <label for="correo">Correo Electrónico:</label><br>
+                    <input type="email" id="correo" name="correo" maxlength="100">
+                    <span id="errorCorreo" style="color: red; display: block;"></span>
+                </div>
+
+                <div>
+                    <label for="comentario">Comentario:</label><br>
+                    <textarea id="comentario" name="comentario" rows="5" cols="40" maxlength="500"></textarea>
+                    <span id="errorComentario" style="color: red; display: block;"></span>
+                </div>
+
+                <br>
+                <button type="submit" class="comprarBoton">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footerInicio">
+        <p>Aprobado por naricitas húmedas y colitas felices 🐶🐱</p>
+    </footer>
+
+    <script src="js/contacto.js"></script>
+</body>
+</html>

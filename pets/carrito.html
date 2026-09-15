@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Carrito</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="inicio">
+    <header>
+        <h1 class="contenedor contenedor1">
+            <a href="index.html" class="contenedor1">Nuestro Hueso</a>
+        </h1>
+    </header>
+    <nav class="links">
+        <a href="index.html" class="card">Inicio</a>
+        <a href="productos.html" class="card"> Seguir Comprando</a>
+        <a href="carrito.html" class="card" id="contadorCarrito"> Carrito(0)</a>
+        
+    </nav>
+    <main>
+        <section>
+            <h2>Mi Carrito de Compras</h2>
+            <div id="listaCarrito"></div>
+            <hr>
+            <h3>Total: $<span id="totalPagar">0</span>CLP</h3>
+            <button type="button" class="comprarBoton" id="btnPagar">Pagar</button>
+            <button type="button" class="card" id="btnVaciar">Vaciar Carrito</button>
+        </section>
+    </main>
+    <footer class="footerInicio">
+        <p>Aprobado por naricitas húmedas y colitas felices 🐶🐱</p>
+    </footer>
+
+    <script src="js/carrito.js"></script>
+</body>
+</html>
