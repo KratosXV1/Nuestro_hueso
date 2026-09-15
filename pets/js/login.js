@@ -11,8 +11,8 @@ correo.addEventListener("input", function() {
         errorCorreo.textContent = "El correo es obligatorio.";
     } else if (valor.length > 100) {
         errorCorreo.textContent = "Máximo 100 caracteres.";
-    } else if (!valor.endsWith("@duoc.cl") && !valor.endsWith("@profesor.duoc.cl") && !valor.endsWith("@gmail.com")) {
-        errorCorreo.textContent = "Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com.";
+    } else if (!valor.endsWith("@gmail.com")) {
+        errorCorreo.textContent = "Solo correos @gmail.com.";
     } else {
         errorCorreo.textContent = "";
     }
@@ -36,7 +36,7 @@ form.addEventListener("submit", function(e) {
     let p = password.value;
     let hayError = false;
 
-    if (c === "" || (!c.endsWith("@duoc.cl") && !c.endsWith("@profesor.duoc.cl") && !c.endsWith("@gmail.com"))) {
+    if (c === "" || (!c.endsWith("@gmail.com"))) {
         errorCorreo.textContent = "Correo inválido.";
         hayError = true;
     }
