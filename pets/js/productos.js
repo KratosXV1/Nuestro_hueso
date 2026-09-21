@@ -18,14 +18,14 @@ const productos = [
         nombre: "SNACK DENTAL PERRO",
         precio: 6000,
         descripcion: "Snack para cuidado oral diario de tu mascota.",
-        imagen: "img/bienvenida.png"
+        imagen: "img/snack.png"
     },
     {
         id: 4,
         nombre: "ARENA SANITARIA GATO",
         precio: 10000,
         descripcion: "Arena aglomerante de alta absorción y control de olor.",
-        imagen: "img/bienvenida.png"
+        imagen: "img/arena.png"
     }
 ];
 
