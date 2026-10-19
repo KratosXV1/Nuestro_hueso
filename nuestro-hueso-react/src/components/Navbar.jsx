@@ -13,7 +13,6 @@ export default function Navbar({ cantCarrito }) {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item"><Link className="nav-link text-white" to="/">Home</Link></li>
             <li className="nav-item"><Link className="nav-link text-white" to="/categorias">Categorías</Link></li>
-            <li className="nav-item"><Link className="nav-link text-warning fw-bold ms-lg-2" to="/admin">⚙️ Panel Admin</Link></li>
           </ul>
           <div className="d-flex align-items-center gap-2">
             <Link to="/carrito" className="btn btn-success btn-sm px-3">

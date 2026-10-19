@@ -66,7 +66,6 @@ export default function App() {
           <Route path="/checkout" element={<Checkout carrito={carrito} onFinalizar={handleVaciar} />} />
           <Route path="/pago-exito" element={<PagoExito />} />
           <Route path="/pago-fallo" element={<PagoFallo />} />
-          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
       <footer className="text-center py-3 text-white mt-5" style={{ backgroundColor: '#d97a7a' }}>
