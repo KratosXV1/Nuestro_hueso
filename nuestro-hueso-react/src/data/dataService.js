@@ -26,7 +26,6 @@ export const dataService = {
     }
   },
 
-  // CRUD PRODUCTOS
   getProductos() {
     this.init();
     return JSON.parse(localStorage.getItem('productos'));

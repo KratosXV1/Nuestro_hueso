@@ -7,14 +7,14 @@ export default function Ofertas({ onAgregar }) {
 
   useEffect(() => {
     const todos = dataService.getProductos();
-    const enOferta = todos.filter(p => p.precio <= 6000); 
+    const enOferta = todos.filter(p => p.oferta === true); 
     setProductosOferta(enOferta);
   }, []);
 
   return (
     <div className="container py-4">
-      <h2 className="fw-bold mb-3 text-danger">🔥 ¡Super Ofertas!</h2>
-      <p className="text-muted mb-4">Aprovecha estos precios imperdibles para regalonear a tu mascota.</p>
+      <h2 className="fw-bold mb-3 text-danger"> ¡Ofertas!</h2>
+      <p className="text-muted mb-4">Aprovecha estos productos con precios rebajados para tus regalones.</p>
 
       {productosOferta.length === 0 ? (
         <div className="alert alert-warning">No hay ofertas disponibles por el momento.</div>
@@ -22,7 +22,7 @@ export default function Ofertas({ onAgregar }) {
         <div className="row g-4">
           {productosOferta.map(p => (
             <div className="col-12 col-md-4" key={p.id}>
-              <div className="card h-100 shadow-sm p-3 border-danger">
+              <div className="card h-100 shadow-sm p-3 border-danger position-relative">
                 <span className="badge bg-danger position-absolute top-0 end-0 m-3">¡OFERTA!</span>
                 <img 
                   src={p.imagen} 
@@ -38,14 +38,17 @@ export default function Ofertas({ onAgregar }) {
                   {p.nombre}
                 </h5>
                 <p className="text-muted small">{p.descripcion}</p>
-                <div className="fw-bold text-danger mb-2">
-                  ${p.precio.toLocaleString('es-CL')} CLP 
+                
+                <div className="mb-2">
+                  <span className="fw-bold text-danger fs-5">
+                    ${(p.precioOferta || p.precio).toLocaleString('es-CL')} CLP
+                  </span>
                   <span className="text-decoration-line-through text-muted small ms-2">
-                    ${(p.precio * 1.25).toLocaleString('es-CL')}
+                    ${p.precio.toLocaleString('es-CL')}
                   </span>
                 </div>
                 
-                <div className="d-flex gap-2">
+                <div className="d-flex gap-2 mt-auto">
                   <button 
                     className="btn btn-outline-dark btn-sm w-50" 
                     onClick={() => setProductoSeleccionado(p)}
@@ -54,7 +57,10 @@ export default function Ofertas({ onAgregar }) {
                   </button>
                   <button 
                     className="btn text-white w-50 btn-sm bg-danger" 
-                    onClick={() => onAgregar(p)}
+                    onClick={() => {
+                      const productoConOferta = { ...p, precio: p.precioOferta || p.precio };
+                      onAgregar(productoConOferta);
+                    }}
                   >
                     Añadir
                   </button>
@@ -88,11 +94,18 @@ export default function Ofertas({ onAgregar }) {
                 
                 <div className="p-3 bg-light rounded text-start mb-3">
                   <p className="text-secondary small mb-0 fst-italic">
-                    "¡Precio rebajado por tiempo limitado!"
+                    "¡Precio rebajado por tiempo limitado! Aprovecha de llevar lo mejor para tu peludo al costo más conveniente."
                   </p>
                 </div>
 
-                <h4 className="fw-bold text-danger">${productoSeleccionado.precio.toLocaleString('es-CL')} CLP</h4>
+                <div className="mb-2">
+                  <span className="fw-bold text-danger fs-4">
+                    ${(productoSeleccionado.precioOferta || productoSeleccionado.precio).toLocaleString('es-CL')} CLP
+                  </span>
+                  <span className="text-decoration-line-through text-muted ms-2">
+                    ${productoSeleccionado.precio.toLocaleString('es-CL')}
+                  </span>
+                </div>
               </div>
               <div className="modal-footer border-0 justify-content-between">
                 <button 
@@ -106,7 +119,8 @@ export default function Ofertas({ onAgregar }) {
                   type="button" 
                   className="btn text-white btn-sm px-4 bg-danger"
                   onClick={() => {
-                    onAgregar(productoSeleccionado);
+                    const productoConOferta = { ...productoSeleccionado, precio: productoSeleccionado.precioOferta || productoSeleccionado.precio };
+                    onAgregar(productoConOferta);
                     setProductoSeleccionado(null);
                   }}
                 >

@@ -7,8 +7,8 @@ import Carrito from './pages/Carrito';
 import Checkout from './pages/Checkout';
 import PagoExito from './pages/PagoExito';
 import PagoFallo from './pages/PagoFallo';
-import AdminDashboard from './pages/AdminDashboard';
 import { dataService } from './data/dataService';
+import Ofertas from './pages/Ofertas';
 
 export default function App() {
   const [carrito, setCarrito] = useState([]);
@@ -61,7 +61,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home onAgregar={handleAgregar} />} />
           <Route path="/categorias" element={<Categorias onAgregar={handleAgregar} />} />
-          <Route path="/ofertas" element={<Categorias onAgregar={handleAgregar} />} />
+          <Route path="/ofertas" element={<Ofertas onAgregar={handleAgregar} />} />
           <Route path="/carrito" element={<Carrito carrito={carrito} onModificarCantidad={handleModificarCantidad} onEliminar={handleEliminar} onVaciar={handleVaciar} />} />
           <Route path="/checkout" element={<Checkout carrito={carrito} onFinalizar={handleVaciar} />} />
           <Route path="/pago-exito" element={<PagoExito />} />
