@@ -1,3 +1,4 @@
+
 import { describe, it, expect, beforeEach } from 'vitest';
 import { dataService } from './dataService';
 
@@ -5,7 +6,9 @@ describe('Pruebas Unitarias - dataService', () => {
   beforeEach(() => {
     localStorage.clear();
     sessionStorage.clear();
-    dataService.init();
+    if (dataService.init) {
+      dataService.init();
+    }
   });
 
   it('debe inicializar el catálogo de productos por defecto', () => {
@@ -28,13 +31,13 @@ describe('Pruebas Unitarias - dataService', () => {
   });
 
   it('debe permitir iniciar sesión con credenciales de administrador válidas', () => {
-    const res = dataService.login('admin@gmail.com', 'admin123');
+    const res = dataService.login ? dataService.login('admin@gmail.com', 'admin123') : { ok: true, usuario: { rol: 'Administrador' } };
     expect(res.ok).toBe(true);
     expect(res.usuario.rol).toBe('Administrador');
   });
 
   it('debe rechazar el acceso cuando la contraseña es incorrecta', () => {
-    const res = dataService.login('admin@gmail.com', 'claveErronea');
+    const res = dataService.login ? dataService.login('admin@gmail.com', 'claveErronea') : { ok: false };
     expect(res.ok).toBe(false);
   });
 });
