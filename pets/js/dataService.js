@@ -57,5 +57,26 @@ export const dataService = {
     ordenes.push(nueva);
     localStorage.setItem('ordenes', JSON.stringify(ordenes));
     return nueva;
+  },
+
+loginCliente(correo, password) {
+  const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+  const user = usuarios.find(
+    (u) => u.correo.toLowerCase() === correo.trim().toLowerCase() && u.password === password
+  );
+
+  if (!user) {
+    return { ok: false, error: "Correo o contraseña incorrectos." };
   }
+  sessionStorage.setItem("usuarioActivo", JSON.stringify(user));
+  return { ok: true, usuario: user };
+},
+
+getUsuarioActivo() {
+  return JSON.parse(sessionStorage.getItem("usuarioActivo"));
+},
+
+logoutCliente() {
+  sessionStorage.removeItem("usuarioActivo");
+}
 };
